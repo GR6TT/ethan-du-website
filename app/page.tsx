@@ -102,9 +102,9 @@ const mediaCards = [
     date: "2024.10",
     categoryZh: "区域合作",
     categoryEn: "Regional Initiative",
-    titleZh: "杜易展协办长三角企业出海服务中心成立",
-    titleEn: "Ethan Du Co-organizes the Launch of the Yangtze River Delta Enterprise Globalization Service Center",
-    bodyZh: "中心整合品牌建设、信息服务、法律合规与国际市场资源，为长三角企业提供出海支持。",
+    titleZh: "上财创投校友会：杜易展协办长三角企业出海服务中心成立",
+    titleEn: "SUFE Venture Alumni Association: Ethan Du Co-organizes the Launch of the Yangtze River Delta Enterprise Globalization Service Center",
+    bodyZh: "长三角智慧城区合作发展服务联盟中心整合品牌建设、信息服务、法律合规与国际市场资源，为长三角企业提供出海支持。",
     bodyEn: "The center connects brand, information, legal compliance, and international market resources to support Yangtze River Delta enterprises expanding globally.",
     image: "/yangtze-export-center.webp",
     brand: "YRD · 2024",
@@ -114,8 +114,8 @@ const mediaCards = [
     date: "2024.05",
     categoryZh: "赛事",
     categoryEn: "Competition",
-    titleZh: "杜易展获淘宝商赛全国冠军",
-    titleEn: "Ethan Du Wins the Taobao Innovation Challenge National Championship",
+    titleZh: "淘宝：杜易展获淘宝营销商赛全国冠军",
+    titleEn: "Taobao: Ethan Du Wins the National Marketing Innovation Challenge",
     bodyZh: "历经近两个月赛程，杜易展与团队从全国 500 多支参赛队伍中脱颖而出，获首届淘宝大学生创新挑战赛全国总冠军。",
     bodyEn: "After nearly two months of competition, Ethan Du and his team emerged from more than 500 teams nationwide to win the inaugural Taobao University Student Innovation Challenge.",
     image: "/taobao-final-group.jpg",
@@ -127,12 +127,23 @@ const insightCards = ["No. 01", "No. 02", "No. 03", "No. 04"];
 const projectCards = [
   {
     number: "001",
-    image: "/taobao-final-group.jpg",
+    image: "/city-trendbook-plan.webp",
+    position: "center",
     titleZh: "城市流行志",
     titleEn: "City Trendbook",
-    bodyZh: "淘宝商赛冠军项目",
-    bodyEn: "Taobao competition champion project",
+    bodyZh: "淘宝营销商赛冠军项目",
+    bodyEn: "Taobao marketing competition champion project",
     href: "/city-trendbook-final.pdf",
+  },
+  {
+    number: "002",
+    image: "/refresh-campus-care-cover.webp",
+    position: "center 31%",
+    titleZh: "焕新日记",
+    titleEn: "Refresh Journal",
+    bodyZh: "面向校园场景的洗护服务项目；负责小程序洗护模块的产品设计、技术开发与运营，日访问量超过 2,000，客户满意度保持在 98% 以上。",
+    bodyEn: "A campus garment and sneaker care venture. Led the mini-program laundry module's product design, development, and operations, reaching 2,000+ daily views with 98%+ customer satisfaction.",
+    href: "",
   },
 ] as const;
 
@@ -422,14 +433,14 @@ export default function Home() {
           {projectCards.map((card, index) => (
             <article key={card.number}>
               <div className={`project-visual project-${index + 1}`}>
-                <img src={card.image} alt={language === "zh" ? card.titleZh : card.titleEn} />
+                <img src={card.image} alt={language === "zh" ? card.titleZh : card.titleEn} style={{ objectPosition: card.position }} />
                 <span>{card.number}</span>
               </div>
               <div className="project-copy">
                 <p>{t.projects}</p>
                 <h3>{language === "zh" ? card.titleZh : card.titleEn}</h3>
                 <span>{language === "zh" ? card.bodyZh : card.bodyEn}</span>
-                <a href={card.href} target="_blank" rel="noreferrer" aria-label={t.openProject} title={t.openProject}><ArrowIcon /></a>
+                {card.href ? <a href={card.href} target="_blank" rel="noreferrer" aria-label={t.openProject} title={t.openProject}><ArrowIcon /></a> : null}
               </div>
             </article>
           ))}
