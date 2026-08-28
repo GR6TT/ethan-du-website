@@ -24,27 +24,27 @@ const nav = {
 const copy = {
   zh: {
     heroName: "Ethan Du",
-    heroTitle: "探索者",
-    heroBody: "个人经历与内容将在下一阶段逐步完善。这里先保留与参考站一致的视觉框架与浏览节奏。",
+    heroTitle: "创作者",
+    heroBody: "Ethan Du 的个人网站，收录其经历、项目、观点与艺术关注。",
     learnMore: "了解更多",
     achievements: "Achievements",
     milestones: "Highlighted Milestones",
-    milestoneIntro: "一些值得被记住的节点。",
-    placeholder: "内容待补充",
+    milestoneIntro: "Ethan Du 的重要经历与阶段性成果。",
+    placeholder: "即将更新",
     readMore: "了解更多",
-    identityTitle: "一段仍在展开的个人路径",
-    identityBody: "关于 Ethan Du 的详细经历、身份与里程碑，将在后续讨论中逐项完善。",
+    identityTitle: "关于 Ethan Du",
+    identityBody: "个人经历、关注领域与相关工作将在此持续更新。",
     media: "媒体报道",
-    mediaIntro: "记录方案之外的现场：一场从小城产品出发的决赛，以及团队如何把它讲清楚。",
+    mediaIntro: "关于 Ethan Du 的媒体报道与公开记录。",
     seeAll: "查看全部",
     tabs: ["洞察", "观点", "演讲与对话"],
-    insightIntro: "记录思考、方法与正在发生的变化",
+    insightIntro: "收录对商业、内容与创新的观察。",
     art: "艺术",
-    artTitle: "收藏灵感，也收藏观看世界的方式",
-    artBody: "艺术内容与收藏条目将在后续逐步加入。",
+    artTitle: "艺术与收藏",
+    artBody: "收录艺术作品、收藏与相关记录。",
     projects: "项目作品",
-    projectsTitle: "城市流行志",
-    projectsBody: "为淘宝“好货”命题完成的一套城市内容与营销方案。小城也有好产品，我的家乡我来说。",
+    projectsTitle: "项目作品",
+    projectsBody: "收录 Ethan Du 参与的代表性项目与作品。",
     openProject: "查看完整方案",
     footerLine: "Personal website of Ethan Du",
     menu: "菜单",
@@ -52,27 +52,27 @@ const copy = {
   },
   en: {
     heroName: "Ethan Du",
-    heroTitle: "Explorer",
-    heroBody: "Biography and editorial content will be shaped in the next phase. For now, the visual system and browsing rhythm are in place.",
+    heroTitle: "Creator",
+    heroBody: "The personal website of Ethan Du, featuring selected milestones, projects, perspectives, and art.",
     learnMore: "Learn More",
     achievements: "Achievements",
     milestones: "Highlighted Milestones",
-    milestoneIntro: "A few moments worth keeping.",
-    placeholder: "Content coming soon",
+    milestoneIntro: "Selected milestones and achievements from Ethan Du.",
+    placeholder: "Coming soon",
     readMore: "Read More",
-    identityTitle: "A personal path still unfolding",
-    identityBody: "Ethan Du’s detailed story, roles, and milestones will be refined together in the next phase.",
+    identityTitle: "About Ethan Du",
+    identityBody: "Background, areas of interest, and related work will be updated here.",
     media: "Media Coverage",
-    mediaIntro: "Beyond the deck: a national final built around local products, city stories, and a clear team presentation.",
+    mediaIntro: "Media coverage and public records featuring Ethan Du.",
     seeAll: "See All",
     tabs: ["Insights", "Perspectives", "Talks & Dialogues"],
-    insightIntro: "Thoughts, methods, and changes worth documenting",
+    insightIntro: "Perspectives on business, content, and innovation.",
     art: "Art",
-    artTitle: "Collecting inspiration—and ways of seeing the world",
-    artBody: "Selected art and collection notes will be added gradually.",
+    artTitle: "Art & Collection",
+    artBody: "Selected artworks, collections, and related records.",
     projects: "Projects",
-    projectsTitle: "City Trendbook",
-    projectsBody: "A city-content and marketing proposal created for Taobao’s Good Products brief: small cities have good products, too.",
+    projectsTitle: "Selected Projects",
+    projectsBody: "Selected projects and work involving Ethan Du.",
     openProject: "View Full Proposal",
     footerLine: "Personal website of Ethan Du",
     menu: "Menu",
@@ -84,110 +84,41 @@ const milestoneCards = [
   {
     index: "01",
     tone: "midnight",
-    titleZh: "城市流行志",
-    titleEn: "City Trendbook",
-    bodyZh: "2024 · 首届淘宝大学生创新挑战赛全国冠军",
-    bodyEn: "2024 · National Champion, the first Taobao University Student Innovation Challenge",
-    image: "/taobao-final-champion.jpg",
+    titleZh: "全国冠军",
+    titleEn: "National Champion",
+    bodyZh: "首届淘宝大学生创新挑战赛 · 2024",
+    bodyEn: "The first Taobao University Student Innovation Challenge · 2024",
+    image: "/taobao-final-arrival.jpg",
     href: "#projects",
   },
-  { index: "02", tone: "electric", titleZh: "求知", titleEn: "Learning" },
-  { index: "03", tone: "paper", titleZh: "创造", titleEn: "Creating" },
-  { index: "04", tone: "violet", titleZh: "连接", titleEn: "Connecting" },
-  { index: "05", tone: "cobalt", titleZh: "下一章", titleEn: "Next Chapter" },
+  { index: "02", tone: "electric", titleZh: "经历", titleEn: "Experience" },
+  { index: "03", tone: "paper", titleZh: "项目", titleEn: "Projects" },
+  { index: "04", tone: "violet", titleZh: "观点", titleEn: "Perspectives" },
+  { index: "05", tone: "cobalt", titleZh: "艺术", titleEn: "Art" },
 ] as const;
 
 const mediaCards = [
   {
     date: "2024.05",
-    categoryZh: "获奖",
-    categoryEn: "Award",
-    titleZh: "「城市流行志」获全国冠军",
-    titleEn: "City Trendbook wins the national title",
-    bodyZh: "华东秃鸡队以城市内容与好货营销方案夺得冠军，并获得 3 万元奖金。",
-    bodyEn: "The team won the national final with a city-content and local-product marketing proposal, receiving a RMB 30,000 prize.",
-    image: "/taobao-final-champion.jpg",
-  },
-  {
-    date: "2024.05",
-    categoryZh: "决赛",
-    categoryEn: "Final",
-    titleZh: "在杭州，讲一次小城的好产品",
-    titleEn: "Telling a local-product story in Hangzhou",
-    bodyZh: "5 月 11 日，全国总决赛在杭州阿里巴巴总部举行。",
-    bodyEn: "The national final was held at Alibaba’s Hangzhou headquarters on May 11.",
-    image: "/taobao-final-presentation.jpg",
-  },
-  {
-    date: "2024.05",
-    categoryZh: "现场",
-    categoryEn: "On Site",
-    titleZh: "从方案到陈述",
-    titleEn: "From proposal to presentation",
-    bodyZh: "围绕产品、城市与内容，完成最后一次现场表达。",
-    bodyEn: "A final presentation connecting products, cities, and content.",
-    image: "/taobao-final-team-stage.jpg",
-  },
-  {
-    date: "2024.05",
-    categoryZh: "决赛日",
-    categoryEn: "Final Day",
-    titleZh: "走进全国总决赛",
-    titleEn: "Arriving at the national final",
-    bodyZh: "参赛团队进入决赛现场的一刻。",
-    bodyEn: "The finalist teams enter the venue before the presentations begin.",
-    image: "/taobao-final-arrival.jpg",
-  },
-  {
-    date: "2024.05",
-    categoryZh: "记录",
-    categoryEn: "Archive",
-    titleZh: "决赛之后",
-    titleEn: "After the final",
-    bodyZh: "参赛团队与评审在杭州留下的一张合影。",
-    bodyEn: "A group portrait of the finalist teams and judges in Hangzhou.",
+    categoryZh: "赛事",
+    categoryEn: "Competition",
+    titleZh: "获全国冠军",
+    titleEn: "National Champion",
+    bodyZh: "Ethan Du 所在团队获首届淘宝大学生创新挑战赛全国冠军。",
+    bodyEn: "Ethan Du’s team won the first Taobao University Student Innovation Challenge.",
     image: "/taobao-final-group.jpg",
-  },
-  {
-    date: "2024.05",
-    categoryZh: "人物",
-    categoryEn: "Portrait",
-    titleZh: "现场记录：Ethan Du",
-    titleEn: "On site: Ethan Du",
-    bodyZh: "总决赛现场的一帧。",
-    bodyEn: "A frame from the national final.",
-    image: "/taobao-final-ethan.jpg",
-    position: "center 28%",
   },
 ] as const;
 const insightCards = ["No. 01", "No. 02", "No. 03", "No. 04"];
 const projectCards = [
   {
     number: "001",
-    image: "/city-trendbook-cover.jpg",
+    image: "/taobao-final-group.jpg",
     titleZh: "城市流行志",
     titleEn: "City Trendbook",
-    bodyZh: "小城也有好产品，我的家乡我来说。",
-    bodyEn: "Small cities have good products, too—let hometown voices tell the story.",
+    bodyZh: "淘宝商赛冠军项目",
+    bodyEn: "Taobao competition champion project",
     href: "/city-trendbook-final.pdf",
-  },
-  {
-    number: "002",
-    image: "/city-trendbook-channel.jpg",
-    titleZh: "淘宝频道 · 城市专题",
-    titleEn: "Taobao City Channel",
-    bodyZh: "将城市与地方好货组织成可持续更新的内容入口。",
-    bodyEn: "A repeatable content destination connecting cities with distinctive local products.",
-    href: "/city-trendbook-final.pdf#page=8",
-  },
-  {
-    number: "003",
-    image: "/city-trendbook-story.jpg",
-    titleZh: "城市故事的传播路径",
-    titleEn: "A distribution path for city stories",
-    bodyZh: "从站内内容到达人矩阵，让地方产品被看见。",
-    bodyEn: "From in-app content to creator networks, giving local products greater visibility.",
-    href: "/city-trendbook-final.pdf#page=11",
   },
 ] as const;
 
@@ -382,14 +313,13 @@ export default function Home() {
             <h2>{t.media}</h2>
             <p className="section-intro">{t.mediaIntro}</p>
           </div>
-          <RailControls railId="media-rail" />
         </div>
-        <div className="card-rail" id="media-rail" data-reveal>
+        <div className="card-rail single-card-rail" id="media-rail" data-reveal>
           {mediaCards.map((card, index) => (
             <article className={`editorial-card editorial-${index + 1}`} key={`${card.date}-${card.titleEn}`}>
               <a className="editorial-link" href="http://t.cn/A6Huj3XQ" target="_blank" rel="noreferrer">
                 <div className="editorial-image has-photo">
-                  <img src={card.image} alt={language === "zh" ? card.titleZh : card.titleEn} style={{ objectPosition: "position" in card ? card.position : "center" }} />
+                  <img src={card.image} alt={language === "zh" ? card.titleZh : card.titleEn} style={{ objectPosition: "center" }} />
                   <span>TAOBAO · 2024</span>
                 </div>
                 <div className="editorial-copy">
@@ -406,7 +336,7 @@ export default function Home() {
 
       <div className="logo-marquee" aria-label="Future media archive">
         <div>
-          {["TAOBAO", "CITY", "PRODUCT", "STORY", "FINAL", "2024", "TAOBAO", "CITY"].map((word, index) => (
+          {["ETHAN DU", "MEDIA", "IDEAS", "PROJECTS", "ART", "INSIGHTS", "ETHAN DU", "PROJECTS"].map((word, index) => (
             <span key={`${word}-${index}`}>{word}</span>
           ))}
         </div>
