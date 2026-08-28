@@ -29,13 +29,13 @@ const copy = {
     learnMore: "了解更多",
     achievements: "Achievements",
     milestones: "Highlighted Milestones",
-    milestoneIntro: "A first look at Ethan Du’s evolving journey.",
+    milestoneIntro: "一些值得被记住的节点。",
     placeholder: "内容待补充",
     readMore: "了解更多",
     identityTitle: "一段仍在展开的个人路径",
     identityBody: "关于 Ethan Du 的详细经历、身份与里程碑，将在后续讨论中逐项完善。",
     media: "媒体报道",
-    mediaIntro: "这里将收录与 Ethan Du 相关的报道、访谈与公开记录",
+    mediaIntro: "记录方案之外的现场：一场从小城产品出发的决赛，以及团队如何把它讲清楚。",
     seeAll: "查看全部",
     tabs: ["洞察", "观点", "演讲与对话"],
     insightIntro: "记录思考、方法与正在发生的变化",
@@ -43,8 +43,9 @@ const copy = {
     artTitle: "收藏灵感，也收藏观看世界的方式",
     artBody: "艺术内容与收藏条目将在后续逐步加入。",
     projects: "项目作品",
-    projectsTitle: "正在构建的想法与作品",
-    projectsBody: "项目档案、阶段成果与协作记录将在这里持续更新。",
+    projectsTitle: "城市流行志",
+    projectsBody: "为淘宝“好货”命题完成的一套城市内容与营销方案。小城也有好产品，我的家乡我来说。",
+    openProject: "查看完整方案",
     footerLine: "Personal website of Ethan Du",
     menu: "菜单",
     close: "关闭",
@@ -56,13 +57,13 @@ const copy = {
     learnMore: "Learn More",
     achievements: "Achievements",
     milestones: "Highlighted Milestones",
-    milestoneIntro: "A first look at Ethan Du’s evolving journey.",
+    milestoneIntro: "A few moments worth keeping.",
     placeholder: "Content coming soon",
     readMore: "Read More",
     identityTitle: "A personal path still unfolding",
     identityBody: "Ethan Du’s detailed story, roles, and milestones will be refined together in the next phase.",
     media: "Media Coverage",
-    mediaIntro: "A future archive of reporting, conversations, and public notes about Ethan Du.",
+    mediaIntro: "Beyond the deck: a national final built around local products, city stories, and a clear team presentation.",
     seeAll: "See All",
     tabs: ["Insights", "Perspectives", "Talks & Dialogues"],
     insightIntro: "Thoughts, methods, and changes worth documenting",
@@ -70,8 +71,9 @@ const copy = {
     artTitle: "Collecting inspiration—and ways of seeing the world",
     artBody: "Selected art and collection notes will be added gradually.",
     projects: "Projects",
-    projectsTitle: "Ideas and work in progress",
-    projectsBody: "Project files, milestones, and collaborations will live here.",
+    projectsTitle: "City Trendbook",
+    projectsBody: "A city-content and marketing proposal created for Taobao’s Good Products brief: small cities have good products, too.",
+    openProject: "View Full Proposal",
     footerLine: "Personal website of Ethan Du",
     menu: "Menu",
     close: "Close",
@@ -79,16 +81,115 @@ const copy = {
 } as const;
 
 const milestoneCards = [
-  { index: "01", tone: "midnight", titleZh: "起点", titleEn: "The Beginning" },
+  {
+    index: "01",
+    tone: "midnight",
+    titleZh: "城市流行志",
+    titleEn: "City Trendbook",
+    bodyZh: "2024 · 首届淘宝大学生创新挑战赛全国冠军",
+    bodyEn: "2024 · National Champion, the first Taobao University Student Innovation Challenge",
+    image: "/taobao-final-champion.jpg",
+    href: "#projects",
+  },
   { index: "02", tone: "electric", titleZh: "求知", titleEn: "Learning" },
   { index: "03", tone: "paper", titleZh: "创造", titleEn: "Creating" },
   { index: "04", tone: "violet", titleZh: "连接", titleEn: "Connecting" },
   { index: "05", tone: "cobalt", titleZh: "下一章", titleEn: "Next Chapter" },
 ] as const;
 
-const mediaCards = ["2026.08", "2026.06", "2026.03", "2025.12", "2025.09"];
+const mediaCards = [
+  {
+    date: "2024.05",
+    categoryZh: "获奖",
+    categoryEn: "Award",
+    titleZh: "「城市流行志」获全国冠军",
+    titleEn: "City Trendbook wins the national title",
+    bodyZh: "华东秃鸡队以城市内容与好货营销方案夺得冠军，并获得 3 万元奖金。",
+    bodyEn: "The team won the national final with a city-content and local-product marketing proposal, receiving a RMB 30,000 prize.",
+    image: "/taobao-final-champion.jpg",
+  },
+  {
+    date: "2024.05",
+    categoryZh: "决赛",
+    categoryEn: "Final",
+    titleZh: "在杭州，讲一次小城的好产品",
+    titleEn: "Telling a local-product story in Hangzhou",
+    bodyZh: "5 月 11 日，全国总决赛在杭州阿里巴巴总部举行。",
+    bodyEn: "The national final was held at Alibaba’s Hangzhou headquarters on May 11.",
+    image: "/taobao-final-presentation.jpg",
+  },
+  {
+    date: "2024.05",
+    categoryZh: "现场",
+    categoryEn: "On Site",
+    titleZh: "从方案到陈述",
+    titleEn: "From proposal to presentation",
+    bodyZh: "围绕产品、城市与内容，完成最后一次现场表达。",
+    bodyEn: "A final presentation connecting products, cities, and content.",
+    image: "/taobao-final-team-stage.jpg",
+  },
+  {
+    date: "2024.05",
+    categoryZh: "决赛日",
+    categoryEn: "Final Day",
+    titleZh: "走进全国总决赛",
+    titleEn: "Arriving at the national final",
+    bodyZh: "参赛团队进入决赛现场的一刻。",
+    bodyEn: "The finalist teams enter the venue before the presentations begin.",
+    image: "/taobao-final-arrival.jpg",
+  },
+  {
+    date: "2024.05",
+    categoryZh: "记录",
+    categoryEn: "Archive",
+    titleZh: "决赛之后",
+    titleEn: "After the final",
+    bodyZh: "参赛团队与评审在杭州留下的一张合影。",
+    bodyEn: "A group portrait of the finalist teams and judges in Hangzhou.",
+    image: "/taobao-final-group.jpg",
+  },
+  {
+    date: "2024.05",
+    categoryZh: "人物",
+    categoryEn: "Portrait",
+    titleZh: "现场记录：Ethan Du",
+    titleEn: "On site: Ethan Du",
+    bodyZh: "总决赛现场的一帧。",
+    bodyEn: "A frame from the national final.",
+    image: "/taobao-final-ethan.jpg",
+    position: "center 28%",
+  },
+] as const;
 const insightCards = ["No. 01", "No. 02", "No. 03", "No. 04"];
-const projectCards = ["001", "002", "003"];
+const projectCards = [
+  {
+    number: "001",
+    image: "/city-trendbook-cover.jpg",
+    titleZh: "城市流行志",
+    titleEn: "City Trendbook",
+    bodyZh: "小城也有好产品，我的家乡我来说。",
+    bodyEn: "Small cities have good products, too—let hometown voices tell the story.",
+    href: "/city-trendbook-final.pdf",
+  },
+  {
+    number: "002",
+    image: "/city-trendbook-channel.jpg",
+    titleZh: "淘宝频道 · 城市专题",
+    titleEn: "Taobao City Channel",
+    bodyZh: "将城市与地方好货组织成可持续更新的内容入口。",
+    bodyEn: "A repeatable content destination connecting cities with distinctive local products.",
+    href: "/city-trendbook-final.pdf#page=8",
+  },
+  {
+    number: "003",
+    image: "/city-trendbook-story.jpg",
+    titleZh: "城市故事的传播路径",
+    titleEn: "A distribution path for city stories",
+    bodyZh: "从站内内容到达人矩阵，让地方产品被看见。",
+    bodyEn: "From in-app content to creator networks, giving local products greater visibility.",
+    href: "/city-trendbook-final.pdf#page=11",
+  },
+] as const;
 
 function ArrowIcon({ direction = "right" }: { direction?: "left" | "right" }) {
   return (
@@ -237,14 +338,15 @@ export default function Home() {
 
         <div className="wide-rail" id="milestone-rail" data-reveal>
           {milestoneCards.map((card) => (
-            <article className={`milestone-card ${card.tone}`} key={card.index}>
+            <article className={`milestone-card ${card.tone} ${"image" in card ? "has-photo" : ""}`} key={card.index}>
+              {"image" in card && <img className="milestone-photo" src={card.image} alt="" />}
               <span className="card-index">{card.index}</span>
               <div className="card-copy">
                 <h3>{language === "zh" ? card.titleZh : card.titleEn}</h3>
-                <p>{t.placeholder}</p>
-                <button className="pill-button light compact" type="button">
+                <p>{"bodyZh" in card ? (language === "zh" ? card.bodyZh : card.bodyEn) : t.placeholder}</p>
+                <a className="pill-button light compact" href={"href" in card ? card.href : "#about"}>
                   {t.readMore}
-                </button>
+                </a>
               </div>
             </article>
           ))}
@@ -283,16 +385,20 @@ export default function Home() {
           <RailControls railId="media-rail" />
         </div>
         <div className="card-rail" id="media-rail" data-reveal>
-          {mediaCards.map((date, index) => (
-            <article className={`editorial-card editorial-${index + 1}`} key={date}>
-              <div className="editorial-image">
-                <span>ETHAN DU</span>
-              </div>
-              <div className="editorial-copy">
-                <p><b>Featured</b><span>News</span><span>·</span><span>{date}</span></p>
-                <h3>{t.placeholder}</h3>
-                <span>{t.mediaIntro}</span>
-              </div>
+          {mediaCards.map((card, index) => (
+            <article className={`editorial-card editorial-${index + 1}`} key={`${card.date}-${card.titleEn}`}>
+              <a className="editorial-link" href="http://t.cn/A6Huj3XQ" target="_blank" rel="noreferrer">
+                <div className="editorial-image has-photo">
+                  <img src={card.image} alt={language === "zh" ? card.titleZh : card.titleEn} style={{ objectPosition: "position" in card ? card.position : "center" }} />
+                  <span>TAOBAO · 2024</span>
+                </div>
+                <div className="editorial-copy">
+                  <p><b>{language === "zh" ? card.categoryZh : card.categoryEn}</b><span>Media</span><span>·</span><span>{card.date}</span></p>
+                  <h3>{language === "zh" ? card.titleZh : card.titleEn}</h3>
+                  <span>{language === "zh" ? card.bodyZh : card.bodyEn}</span>
+                  <em>{language === "zh" ? "观看决赛报道 ↗" : "Watch the final ↗"}</em>
+                </div>
+              </a>
             </article>
           ))}
         </div>
@@ -300,7 +406,7 @@ export default function Home() {
 
       <div className="logo-marquee" aria-label="Future media archive">
         <div>
-          {["JOURNAL", "REVIEW", "MEDIA", "STUDIO", "NOTES", "ARCHIVE", "JOURNAL", "REVIEW"].map((word, index) => (
+          {["TAOBAO", "CITY", "PRODUCT", "STORY", "FINAL", "2024", "TAOBAO", "CITY"].map((word, index) => (
             <span key={`${word}-${index}`}>{word}</span>
           ))}
         </div>
@@ -365,16 +471,17 @@ export default function Home() {
           </div>
         </div>
         <div className="project-grid" data-reveal>
-          {projectCards.map((number, index) => (
-            <article key={number}>
+          {projectCards.map((card, index) => (
+            <article key={card.number}>
               <div className={`project-visual project-${index + 1}`}>
-                <span>{number}</span>
-                <i />
+                <img src={card.image} alt={language === "zh" ? card.titleZh : card.titleEn} />
+                <span>{card.number}</span>
               </div>
               <div className="project-copy">
                 <p>{t.projects}</p>
-                <h3>{t.placeholder}</h3>
-                <button type="button" aria-label={t.readMore}><ArrowIcon /></button>
+                <h3>{language === "zh" ? card.titleZh : card.titleEn}</h3>
+                <span>{language === "zh" ? card.bodyZh : card.bodyEn}</span>
+                <a href={card.href} target="_blank" rel="noreferrer" aria-label={t.openProject} title={t.openProject}><ArrowIcon /></a>
               </div>
             </article>
           ))}
