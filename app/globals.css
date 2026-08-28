@@ -286,10 +286,13 @@ img { display: block; max-width: 100%; }
 .editorial-4 .editorial-image { background: linear-gradient(145deg, #133655, #21a3b8); }
 .editorial-5 .editorial-image { background: linear-gradient(145deg, #282b35, #9ba3b7); }
 .editorial-copy, .insight-card > div:last-child { min-height: 190px; padding: 22px 24px 26px; }
+.editorial-copy { display: flex; flex-direction: column; }
 .editorial-copy p, .insight-card p { display: flex; align-items: center; gap: 10px; margin: 0 0 13px; color: #9aa0ad; font-size: 14px; }
 .editorial-copy p b { padding: 4px 10px; border-radius: 99px; color: var(--blue); background: #dce6ff; font-size: 12px; }
 .editorial-copy h3, .insight-card h3 { margin: 0 0 12px; font-size: 23px; line-height: 1.25; }
+.editorial-copy h3 { min-height: 2.5em; display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
 .editorial-copy > span, .insight-card > div:last-child > span { color: #9aa0ad; font-size: 15px; line-height: 1.5; }
+.editorial-copy > span { min-height: 4.5em; display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
 .editorial-copy em { display: block; margin-top: 14px; color: var(--blue); font-size: 13px; font-style: normal; }
 .logo-marquee { overflow: hidden; padding: 84px 0; background: white; }
 .logo-marquee > div { width: max-content; display: flex; align-items: center; gap: 110px; animation: marquee 26s linear infinite; }
