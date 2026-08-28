@@ -270,8 +270,8 @@ img { display: block; max-width: 100%; }
 .media-section, .insights-section { background: linear-gradient(180deg, #f8faff, #fff); }
 .card-rail { padding: 0 40px; }
 .editorial-card, .insight-card { flex: 0 0 340px; overflow: hidden; border-radius: 20px; background: #f1f4fc; scroll-snap-align: start; }
-.single-card-rail .editorial-card { flex-basis: min(620px, calc(100vw - 80px)); }
-.single-card-rail .editorial-image { height: auto; aspect-ratio: 3 / 2; }
+.feature-card-rail .editorial-card { flex-basis: min(560px, calc(100vw - 48px)); }
+.feature-card-rail .editorial-image { height: auto; aspect-ratio: 3 / 2; }
 .editorial-link { display: block; height: 100%; color: inherit; text-decoration: none; }
 .editorial-image, .insight-image { position: relative; height: 210px; overflow: hidden; background: #0b1735; }
 .editorial-image::before, .insight-image::before { content: ""; position: absolute; width: 260px; height: 260px; right: -45px; top: -60px; border: 1px solid rgba(255,255,255,.34); border-radius: 50%; box-shadow: inset 0 0 70px rgba(72,119,255,.28); }

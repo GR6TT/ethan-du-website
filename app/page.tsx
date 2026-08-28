@@ -23,19 +23,19 @@ const nav = {
 
 const copy = {
   zh: {
-    heroName: "Ethan Du",
+    heroName: "杜易展",
     heroTitle: "创作者",
-    heroBody: "Ethan Du 的个人网站，收录其经历、项目、观点与艺术关注。",
+    heroBody: "杜易展的个人网站，收录其经历、项目、观点与艺术关注。",
     learnMore: "了解更多",
     achievements: "Achievements",
     milestones: "Highlighted Milestones",
-    milestoneIntro: "Ethan Du 的重要经历与阶段性成果。",
+    milestoneIntro: "杜易展的重要经历与阶段性成果。",
     placeholder: "即将更新",
     readMore: "了解更多",
-    identityTitle: "关于 Ethan Du",
+    identityTitle: "关于杜易展",
     identityBody: "个人经历、关注领域与相关工作将在此持续更新。",
     media: "媒体报道",
-    mediaIntro: "关于 Ethan Du 的媒体报道与公开记录。",
+    mediaIntro: "关于杜易展的媒体报道与公开记录。",
     seeAll: "查看全部",
     tabs: ["洞察", "观点", "演讲与对话"],
     insightIntro: "收录对商业、内容与创新的观察。",
@@ -44,9 +44,9 @@ const copy = {
     artBody: "收录艺术作品、收藏与相关记录。",
     projects: "项目作品",
     projectsTitle: "项目作品",
-    projectsBody: "收录 Ethan Du 参与的代表性项目与作品。",
+    projectsBody: "收录杜易展参与的代表性项目与作品。",
     openProject: "查看完整方案",
-    footerLine: "Personal website of Ethan Du",
+    footerLine: "杜易展个人网站",
     menu: "菜单",
     close: "关闭",
   },
@@ -99,14 +99,28 @@ const milestoneCards = [
 
 const mediaCards = [
   {
+    date: "2024.10",
+    categoryZh: "区域合作",
+    categoryEn: "Regional Initiative",
+    titleZh: "杜易展协办长三角企业出海服务中心成立",
+    titleEn: "Ethan Du Co-organizes the Launch of the Yangtze River Delta Enterprise Globalization Service Center",
+    bodyZh: "中心整合品牌建设、信息服务、法律合规与国际市场资源，为长三角企业提供出海支持。",
+    bodyEn: "The center connects brand, information, legal compliance, and international market resources to support Yangtze River Delta enterprises expanding globally.",
+    image: "/yangtze-export-center.webp",
+    brand: "YRD · 2024",
+    href: "https://mp.weixin.qq.com/s/Rh-VUVlhFlsOo-HJWkcNaA",
+  },
+  {
     date: "2024.05",
     categoryZh: "赛事",
     categoryEn: "Competition",
-    titleZh: "获全国冠军",
-    titleEn: "National Champion",
-    bodyZh: "Ethan Du 所在团队获首届淘宝大学生创新挑战赛全国冠军。",
-    bodyEn: "Ethan Du’s team won the first Taobao University Student Innovation Challenge.",
+    titleZh: "杜易展获淘宝商赛全国冠军",
+    titleEn: "Ethan Du Wins the Taobao Innovation Challenge National Championship",
+    bodyZh: "历经近两个月赛程，杜易展与团队从全国 500 多支参赛队伍中脱颖而出，获首届淘宝大学生创新挑战赛全国总冠军。",
+    bodyEn: "After nearly two months of competition, Ethan Du and his team emerged from more than 500 teams nationwide to win the inaugural Taobao University Student Innovation Challenge.",
     image: "/taobao-final-group.jpg",
+    brand: "TAOBAO · 2024",
+    href: "http://t.cn/A6Huj3XQ",
   },
 ] as const;
 const insightCards = ["No. 01", "No. 02", "No. 03", "No. 04"];
@@ -313,20 +327,21 @@ export default function Home() {
             <h2>{t.media}</h2>
             <p className="section-intro">{t.mediaIntro}</p>
           </div>
+          <RailControls railId="media-rail" />
         </div>
-        <div className="card-rail single-card-rail" id="media-rail" data-reveal>
+        <div className="card-rail feature-card-rail" id="media-rail" data-reveal>
           {mediaCards.map((card, index) => (
             <article className={`editorial-card editorial-${index + 1}`} key={`${card.date}-${card.titleEn}`}>
-              <a className="editorial-link" href="http://t.cn/A6Huj3XQ" target="_blank" rel="noreferrer">
+              <a className="editorial-link" href={card.href} target="_blank" rel="noreferrer">
                 <div className="editorial-image has-photo">
                   <img src={card.image} alt={language === "zh" ? card.titleZh : card.titleEn} style={{ objectPosition: "center" }} />
-                  <span>TAOBAO · 2024</span>
+                  <span>{card.brand}</span>
                 </div>
                 <div className="editorial-copy">
                   <p><b>{language === "zh" ? card.categoryZh : card.categoryEn}</b><span>Media</span><span>·</span><span>{card.date}</span></p>
                   <h3>{language === "zh" ? card.titleZh : card.titleEn}</h3>
                   <span>{language === "zh" ? card.bodyZh : card.bodyEn}</span>
-                  <em>{language === "zh" ? "观看决赛报道 ↗" : "Watch the final ↗"}</em>
+                  <em>{language === "zh" ? "查看报道 ↗" : "Read the coverage ↗"}</em>
                 </div>
               </a>
             </article>
@@ -336,7 +351,10 @@ export default function Home() {
 
       <div className="logo-marquee" aria-label="Future media archive">
         <div>
-          {["ETHAN DU", "MEDIA", "IDEAS", "PROJECTS", "ART", "INSIGHTS", "ETHAN DU", "PROJECTS"].map((word, index) => (
+          {(language === "zh"
+            ? ["杜易展", "媒体", "观点", "项目作品", "艺术", "洞察", "杜易展", "项目作品"]
+            : ["ETHAN DU", "MEDIA", "IDEAS", "PROJECTS", "ART", "INSIGHTS", "ETHAN DU", "PROJECTS"]
+          ).map((word, index) => (
             <span key={`${word}-${index}`}>{word}</span>
           ))}
         </div>
@@ -422,7 +440,7 @@ export default function Home() {
         <img className="footer-signature" src="/ethan-signature.png" alt="Ethan Du" />
         <div className="footer-rule" />
         <div className="footer-meta">
-          <p>© {year} Ethan Du. All rights reserved.</p>
+          <p>© {year} {language === "zh" ? "杜易展" : "Ethan Du"}. All rights reserved.</p>
           <p>{t.footerLine}</p>
         </div>
       </footer>
