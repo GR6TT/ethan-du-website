@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type MouseEvent } from "react";
 
 type Language = "zh" | "en";
 
@@ -39,6 +39,9 @@ const copy = {
     seeAll: "查看全部",
     tabs: ["洞察", "观点", "演讲与对话"],
     insightIntro: "收录对商业、内容与创新的观察。",
+    socialTitle: "社交账号",
+    socialIntro: "关注杜易展在不同平台发布的公开内容。",
+    openSocial: "访问账号 ↗",
     art: "艺术",
     artTitle: "艺术与收藏",
     artBody: "收录艺术作品、收藏与相关记录。",
@@ -67,6 +70,9 @@ const copy = {
     seeAll: "See All",
     tabs: ["Insights", "Perspectives", "Talks & Dialogues"],
     insightIntro: "Perspectives on business, content, and innovation.",
+    socialTitle: "Social Channels",
+    socialIntro: "Follow Ethan Du's public updates across platforms.",
+    openSocial: "Visit profile ↗",
     art: "Art",
     artTitle: "Art & Collection",
     artBody: "Selected artworks, collections, and related records.",
@@ -123,7 +129,52 @@ const mediaCards = [
     href: "http://t.cn/A6Huj3XQ",
   },
 ] as const;
-const insightCards = ["No. 01", "No. 02", "No. 03", "No. 04"];
+const socialCards = [
+  {
+    number: "01",
+    slug: "douyin",
+    platformZh: "抖音",
+    platformEn: "Douyin",
+    handle: "@ethandue",
+    summaryZh: "短视频与日常记录。",
+    summaryEn: "Short-form video and everyday notes.",
+    image: "/social-douyin.webp",
+    href: "https://www.douyin.com/search/ethandue?type=user",
+  },
+  {
+    number: "02",
+    slug: "linkedin",
+    platformZh: "领英",
+    platformEn: "LinkedIn",
+    handle: "Yizhan Du",
+    summaryZh: "职业经历与公开动态。",
+    summaryEn: "Professional experience and public updates.",
+    image: "",
+    href: "https://www.linkedin.com/in/yizhan-du-148494306",
+  },
+  {
+    number: "03",
+    slug: "xiaohongshu",
+    platformZh: "小红书",
+    platformEn: "Xiaohongshu",
+    handle: "DUYIZHAN",
+    summaryZh: "生活方式、观察与图文记录。",
+    summaryEn: "Lifestyle, observations, and visual notes.",
+    image: "/social-xiaohongshu.webp",
+    href: "https://xhslink.com/m/90oLA9aKLTe",
+  },
+  {
+    number: "04",
+    slug: "instagram",
+    platformZh: "Instagram",
+    platformEn: "Instagram",
+    handle: "@duyizhan0912",
+    summaryZh: "照片、视觉记录与日常片段。",
+    summaryEn: "Photography, visual notes, and daily moments.",
+    image: "/social-instagram.webp",
+    href: "https://www.instagram.com/duyizhan0912",
+  },
+] as const;
 const projectCards = [
   {
     number: "001",
@@ -134,16 +185,18 @@ const projectCards = [
     bodyZh: "淘宝营销商赛冠军项目",
     bodyEn: "Taobao marketing competition champion project",
     href: "/city-trendbook-final.pdf",
+    linkType: "document",
   },
   {
     number: "002",
-    image: "/refresh-campus-care-cover.webp",
-    position: "center 31%",
+    image: "/refresh-campus-care-cover-v2.webp",
+    position: "center",
     titleZh: "焕新日记 洗护创业",
     titleEn: "Refresh Journal Laundry Venture",
     bodyZh: "面向校园提供鞋履、衣物洗护服务，与多家本地门店建立合作，日访问量超过 2,000，客户满意度保持在 98% 以上。",
     bodyEn: "A campus shoe and garment care service developed with multiple local retail partners, reaching 2,000+ daily views with 98%+ customer satisfaction.",
-    href: "",
+    href: "#小程序://杉苑/Wn50paCRYBgVh9f",
+    linkType: "mini-program",
   },
 ] as const;
 
@@ -177,7 +230,7 @@ export default function Home() {
   const [language, setLanguage] = useState<Language>("zh");
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState(0);
+  const [miniProgramCopied, setMiniProgramCopied] = useState(false);
   const t = copy[language];
   const primaryNav = nav[language];
   const year = useMemo(() => new Date().getFullYear(), []);
@@ -209,6 +262,18 @@ export default function Home() {
   }, [menuOpen]);
 
   const closeMenu = () => setMenuOpen(false);
+
+  const openProject = async (event: MouseEvent<HTMLAnchorElement>, href: string, linkType: string) => {
+    if (linkType !== "mini-program") return;
+    event.preventDefault();
+    try {
+      await navigator.clipboard.writeText(href);
+      setMiniProgramCopied(true);
+      window.setTimeout(() => setMiniProgramCopied(false), 2800);
+    } catch {
+      window.prompt(language === "zh" ? "复制小程序口令后在微信中打开" : "Copy this Mini Program link and open it in WeChat", href);
+    }
+  };
 
   return (
     <main className="site-shell" id="top">
@@ -373,35 +438,30 @@ export default function Home() {
 
       <section className="insights-section section" id="insights">
         <div className="insight-toolbar" data-reveal>
-          <div className="tab-list" role="tablist" aria-label="Insight categories">
-            {t.tabs.map((tab, index) => (
-              <button
-                type="button"
-                role="tab"
-                aria-selected={activeTab === index}
-                className={activeTab === index ? "active" : ""}
-                onClick={() => setActiveTab(index)}
-                key={tab}
-              >
-                {tab}
-              </button>
-            ))}
+          <div className="social-heading">
+            <p className="blue-label">Social Channels</p>
+            <h2>{t.socialTitle}</h2>
           </div>
           <div className="insight-actions">
             <RailControls railId="insight-rail" />
-            <button className="pill-button blue compact" type="button">{t.seeAll}</button>
           </div>
         </div>
-        <p className="insight-intro" data-reveal>{t.insightIntro}</p>
-        <div className="card-rail" id="insight-rail" data-reveal>
-          {insightCards.map((number, index) => (
-            <article className={`insight-card insight-${index + activeTab + 1}`} key={number}>
-              <div className="insight-image"><span>{number}</span></div>
-              <div>
-                <p>{t.tabs[activeTab]}<span>·</span>2026</p>
-                <h3>{t.placeholder}</h3>
-                <span>{t.insightIntro}</span>
-              </div>
+        <p className="insight-intro" data-reveal>{t.socialIntro}</p>
+        <div className="card-rail social-rail" id="insight-rail" data-reveal>
+          {socialCards.map((card) => (
+            <article className={`insight-card social-card social-${card.slug}`} key={card.slug}>
+              <a className="social-card-link" href={card.href} target="_blank" rel="noreferrer">
+                <div className="insight-image social-visual">
+                  {card.image ? <img src={card.image} alt={`${card.platformEn} ${card.handle}`} /> : <b className="social-mark" aria-hidden="true">in</b>}
+                  <i className="social-index">{card.number}</i>
+                </div>
+                <div className="social-copy">
+                  <p>{language === "zh" ? card.platformZh : card.platformEn}<span>·</span>{card.handle}</p>
+                  <h3>{card.handle}</h3>
+                  <span>{language === "zh" ? card.summaryZh : card.summaryEn}</span>
+                  <em>{t.openSocial}</em>
+                </div>
+              </a>
             </article>
           ))}
         </div>
@@ -440,12 +500,21 @@ export default function Home() {
                 <p>{t.projects}</p>
                 <h3>{language === "zh" ? card.titleZh : card.titleEn}</h3>
                 <span>{language === "zh" ? card.bodyZh : card.bodyEn}</span>
-                {card.href ? <a href={card.href} target="_blank" rel="noreferrer" aria-label={t.openProject} title={t.openProject}><ArrowIcon /></a> : null}
+                <a
+                  href={card.href}
+                  target={card.linkType === "document" ? "_blank" : undefined}
+                  rel={card.linkType === "document" ? "noreferrer" : undefined}
+                  onClick={(event) => openProject(event, card.href, card.linkType)}
+                  aria-label={card.linkType === "mini-program" ? (language === "zh" ? "复制小程序口令" : "Copy Mini Program link") : t.openProject}
+                  title={card.linkType === "mini-program" ? (language === "zh" ? "复制小程序口令" : "Copy Mini Program link") : t.openProject}
+                ><ArrowIcon /></a>
               </div>
             </article>
           ))}
         </div>
       </section>
+
+      {miniProgramCopied ? <div className="copy-toast" role="status">{language === "zh" ? "小程序口令已复制，请在微信中打开" : "Mini Program link copied — open it in WeChat"}</div> : null}
 
       <footer>
         <img className="footer-signature" src="/ethan-signature.png" alt="Ethan Du" />
