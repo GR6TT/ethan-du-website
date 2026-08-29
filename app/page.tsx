@@ -9,14 +9,12 @@ const nav = {
     ["关于", "about"],
     ["媒体", "media"],
     ["洞察", "insights"],
-    ["艺术", "art"],
     ["项目作品", "projects"],
   ],
   en: [
     ["About", "about"],
     ["Media", "media"],
     ["Insights", "insights"],
-    ["Art", "art"],
     ["Projects", "projects"],
   ],
 } as const;
@@ -25,7 +23,7 @@ const copy = {
   zh: {
     heroName: "杜易展",
     heroTitle: "创作者",
-    heroBody: "杜易展的个人网站，收录其经历、项目、观点与艺术关注。",
+    heroBody: "杜易展的个人网站，收录其经历、项目与观点。",
     learnMore: "了解更多",
     achievements: "Achievements",
     milestones: "Highlighted Milestones",
@@ -37,14 +35,10 @@ const copy = {
     media: "媒体报道",
     mediaIntro: "关于杜易展的媒体报道与公开记录。",
     seeAll: "查看全部",
-    tabs: ["洞察", "观点", "演讲与对话"],
+    tabs: ["社交账号", "观点", "视频集锦"],
     insightIntro: "收录对商业、内容与创新的观察。",
-    socialTitle: "社交账号",
     socialIntro: "关注杜易展在不同平台发布的公开内容。",
     openSocial: "访问账号 ↗",
-    art: "艺术",
-    artTitle: "艺术与收藏",
-    artBody: "收录艺术作品、收藏与相关记录。",
     projects: "项目作品",
     projectsTitle: "项目作品",
     projectsBody: "收录杜易展参与的代表性项目与作品。",
@@ -56,7 +50,7 @@ const copy = {
   en: {
     heroName: "Ethan Du",
     heroTitle: "Creator",
-    heroBody: "The personal website of Ethan Du, featuring selected milestones, projects, perspectives, and art.",
+    heroBody: "The personal website of Ethan Du, featuring selected milestones, projects, and perspectives.",
     learnMore: "Learn More",
     achievements: "Achievements",
     milestones: "Highlighted Milestones",
@@ -68,14 +62,10 @@ const copy = {
     media: "Media Coverage",
     mediaIntro: "Media coverage and public records featuring Ethan Du.",
     seeAll: "See All",
-    tabs: ["Insights", "Perspectives", "Talks & Dialogues"],
+    tabs: ["Social Channels", "Perspectives", "Video Highlights"],
     insightIntro: "Perspectives on business, content, and innovation.",
-    socialTitle: "Social Channels",
     socialIntro: "Follow Ethan Du's public updates across platforms.",
     openSocial: "Visit profile ↗",
-    art: "Art",
-    artTitle: "Art & Collection",
-    artBody: "Selected artworks, collections, and related records.",
     projects: "Projects",
     projectsTitle: "Selected Projects",
     projectsBody: "Selected projects and work involving Ethan Du.",
@@ -100,7 +90,6 @@ const milestoneCards = [
   { index: "02", tone: "electric", titleZh: "经历", titleEn: "Experience" },
   { index: "03", tone: "paper", titleZh: "项目", titleEn: "Projects" },
   { index: "04", tone: "violet", titleZh: "观点", titleEn: "Perspectives" },
-  { index: "05", tone: "cobalt", titleZh: "艺术", titleEn: "Art" },
 ] as const;
 
 const mediaCards = [
@@ -138,7 +127,6 @@ const socialCards = [
     handle: "@ethandue",
     summaryZh: "短视频与日常记录。",
     summaryEn: "Short-form video and everyday notes.",
-    image: "/social-douyin.webp",
     href: "https://www.douyin.com/search/ethandue?type=user",
   },
   {
@@ -149,7 +137,6 @@ const socialCards = [
     handle: "Yizhan Du",
     summaryZh: "职业经历与公开动态。",
     summaryEn: "Professional experience and public updates.",
-    image: "",
     href: "https://www.linkedin.com/in/yizhan-du-148494306",
   },
   {
@@ -160,7 +147,6 @@ const socialCards = [
     handle: "DUYIZHAN",
     summaryZh: "生活方式、观察与图文记录。",
     summaryEn: "Lifestyle, observations, and visual notes.",
-    image: "/social-xiaohongshu.webp",
     href: "https://xhslink.com/m/90oLA9aKLTe",
   },
   {
@@ -171,10 +157,11 @@ const socialCards = [
     handle: "@duyizhan0912",
     summaryZh: "照片、视觉记录与日常片段。",
     summaryEn: "Photography, visual notes, and daily moments.",
-    image: "/social-instagram.webp",
     href: "https://www.instagram.com/duyizhan0912",
   },
 ] as const;
+
+const insightCards = ["No. 01", "No. 02", "No. 03", "No. 04"];
 const projectCards = [
   {
     number: "001",
@@ -208,6 +195,38 @@ function ArrowIcon({ direction = "right" }: { direction?: "left" | "right" }) {
   );
 }
 
+function SocialLogo({ platform }: { platform: (typeof socialCards)[number]["slug"] }) {
+  if (platform === "linkedin") {
+    return <span className="social-app-icon linkedin-icon" aria-hidden="true"><b>in</b></span>;
+  }
+
+  if (platform === "xiaohongshu") {
+    return <span className="social-app-icon xiaohongshu-icon" aria-hidden="true"><b>小红书</b></span>;
+  }
+
+  if (platform === "instagram") {
+    return (
+      <span className="social-app-icon instagram-icon" aria-hidden="true">
+        <svg viewBox="0 0 120 120">
+          <rect x="24" y="24" width="72" height="72" rx="23" />
+          <circle cx="60" cy="60" r="18" />
+          <circle cx="84" cy="36" r="5" />
+        </svg>
+      </span>
+    );
+  }
+
+  return (
+    <span className="social-app-icon douyin-icon" aria-hidden="true">
+      <svg viewBox="0 0 120 120">
+        <path className="douyin-cyan" d="M67 24v47a20 20 0 1 1-16-19v14a7 7 0 1 0 3 6V24h13c3 10 11 18 23 20v14c-9-1-16-4-23-9Z" />
+        <path className="douyin-pink" d="M74 20v47a20 20 0 1 1-16-19v14a7 7 0 1 0 3 6V20h13c3 10 11 18 23 20v14c-9-1-16-4-23-9Z" />
+        <path className="douyin-white" d="M71 22v47a20 20 0 1 1-16-19v14a7 7 0 1 0 3 6V22h13c3 10 11 18 23 20v14c-9-1-16-4-23-9Z" />
+      </svg>
+    </span>
+  );
+}
+
 function RailControls({ railId }: { railId: string }) {
   const move = (direction: number) => {
     const rail = document.getElementById(railId);
@@ -230,6 +249,7 @@ export default function Home() {
   const [language, setLanguage] = useState<Language>("zh");
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState(0);
   const [miniProgramCopied, setMiniProgramCopied] = useState(false);
   const t = copy[language];
   const primaryNav = nav[language];
@@ -428,8 +448,8 @@ export default function Home() {
       <div className="logo-marquee" aria-label="Future media archive">
         <div>
           {(language === "zh"
-            ? ["杜易展", "媒体", "观点", "项目作品", "艺术", "洞察", "杜易展", "项目作品"]
-            : ["ETHAN DU", "MEDIA", "IDEAS", "PROJECTS", "ART", "INSIGHTS", "ETHAN DU", "PROJECTS"]
+            ? ["杜易展", "媒体", "观点", "项目作品", "洞察", "杜易展", "媒体", "项目作品"]
+            : ["ETHAN DU", "MEDIA", "IDEAS", "PROJECTS", "INSIGHTS", "ETHAN DU", "MEDIA", "PROJECTS"]
           ).map((word, index) => (
             <span key={`${word}-${index}`}>{word}</span>
           ))}
@@ -438,46 +458,56 @@ export default function Home() {
 
       <section className="insights-section section" id="insights">
         <div className="insight-toolbar" data-reveal>
-          <div className="social-heading">
-            <p className="blue-label">Social Channels</p>
-            <h2>{t.socialTitle}</h2>
+          <div className="tab-list" role="tablist" aria-label="Insight categories">
+            {t.tabs.map((tab, index) => (
+              <button
+                type="button"
+                role="tab"
+                aria-selected={activeTab === index}
+                className={activeTab === index ? "active" : ""}
+                onClick={() => setActiveTab(index)}
+                key={tab}
+              >
+                {tab}
+              </button>
+            ))}
           </div>
           <div className="insight-actions">
             <RailControls railId="insight-rail" />
+            <button className="pill-button blue compact" type="button">{t.seeAll}</button>
           </div>
         </div>
-        <p className="insight-intro" data-reveal>{t.socialIntro}</p>
-        <div className="card-rail social-rail" id="insight-rail" data-reveal>
-          {socialCards.map((card) => (
-            <article className={`insight-card social-card social-${card.slug}`} key={card.slug}>
-              <a className="social-card-link" href={card.href} target="_blank" rel="noreferrer">
-                <div className="insight-image social-visual">
-                  {card.image ? <img src={card.image} alt={`${card.platformEn} ${card.handle}`} /> : <b className="social-mark" aria-hidden="true">in</b>}
-                  <i className="social-index">{card.number}</i>
+        <p className="insight-intro" data-reveal>{activeTab === 0 ? t.socialIntro : t.insightIntro}</p>
+        <div className={`card-rail${activeTab === 0 ? " social-rail" : ""}`} id="insight-rail" data-reveal>
+          {activeTab === 0 ? (
+            socialCards.map((card) => (
+              <article className={`insight-card social-card social-${card.slug}`} key={card.slug}>
+                <a className="social-card-link" href={card.href} target="_blank" rel="noreferrer">
+                  <div className="insight-image social-visual">
+                    <SocialLogo platform={card.slug} />
+                    <i className="social-index">{card.number}</i>
+                  </div>
+                  <div className="social-copy">
+                    <p>{language === "zh" ? card.platformZh : card.platformEn}<span>·</span>{card.handle}</p>
+                    <h3>{card.handle}</h3>
+                    <span>{language === "zh" ? card.summaryZh : card.summaryEn}</span>
+                    <em>{t.openSocial}</em>
+                  </div>
+                </a>
+              </article>
+            ))
+          ) : (
+            insightCards.map((number, index) => (
+              <article className={`insight-card insight-${index + activeTab + 1}`} key={number}>
+                <div className="insight-image"><span>{number}</span></div>
+                <div>
+                  <p>{t.tabs[activeTab]}<span>·</span>2026</p>
+                  <h3>{t.placeholder}</h3>
+                  <span>{t.insightIntro}</span>
                 </div>
-                <div className="social-copy">
-                  <p>{language === "zh" ? card.platformZh : card.platformEn}<span>·</span>{card.handle}</p>
-                  <h3>{card.handle}</h3>
-                  <span>{language === "zh" ? card.summaryZh : card.summaryEn}</span>
-                  <em>{t.openSocial}</em>
-                </div>
-              </a>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="art-section" id="art">
-        <div className="art-visual" aria-hidden="true">
-          <div className="art-disc" />
-          <div className="art-line line-one" />
-          <div className="art-line line-two" />
-        </div>
-        <div className="art-copy" data-reveal>
-          <p className="blue-label">{t.art}</p>
-          <h2>{t.artTitle}</h2>
-          <p>{t.artBody}</p>
-          <button className="pill-button light" type="button">{t.learnMore}<ArrowIcon /></button>
+              </article>
+            ))
+          )}
         </div>
       </section>
 
