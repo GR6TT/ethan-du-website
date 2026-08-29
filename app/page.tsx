@@ -38,6 +38,7 @@ const copy = {
     tabs: ["社交账号", "观点", "视频集锦"],
     insightIntro: "收录对商业、内容与创新的观察。",
     socialIntro: "关注杜易展在不同平台发布的公开内容。",
+    socialPlatform: "社交平台",
     openSocial: "访问账号 ↗",
     projects: "项目作品",
     projectsTitle: "项目作品",
@@ -65,6 +66,7 @@ const copy = {
     tabs: ["Social Channels", "Perspectives", "Video Highlights"],
     insightIntro: "Perspectives on business, content, and innovation.",
     socialIntro: "Follow Ethan Du's public updates across platforms.",
+    socialPlatform: "Social platform",
     openSocial: "Visit profile ↗",
     projects: "Projects",
     projectsTitle: "Selected Projects",
@@ -106,6 +108,18 @@ const mediaCards = [
     href: "https://mp.weixin.qq.com/s/Rh-VUVlhFlsOo-HJWkcNaA",
   },
   {
+    date: "2024.07",
+    categoryZh: "科创峰会",
+    categoryEn: "Technology Summit",
+    titleZh: "财联社&科创板日报：杜易展以 Eagle 创投执委身份支持科创板开市五周年峰会",
+    titleEn: "CLS & STAR Market Daily: Ethan Du Supports the STAR Market Fifth Anniversary Summit as an Eagle Ventures Executive Committee Member",
+    bodyZh: "峰会由上海市投资促进服务中心与《科创板日报》主办，吸引近 900 人报名，汇聚政府、学界、科创企业与投资机构代表，共议产业创新与资本协同。杜易展以 Eagle 创投执委身份参与支持活动举办。",
+    bodyEn: "Hosted by the Shanghai Investment Promotion Service Center and STAR Market Daily, the summit drew nearly 900 registrations and convened representatives from government, academia, technology companies, and investment institutions. Ethan Du supported the event as an Eagle Ventures Executive Committee member.",
+    image: "/star-market-fifth-anniversary.jpg",
+    brand: "STAR MARKET · 2024",
+    href: "https://www.cls.cn/detail/1744399",
+  },
+  {
     date: "2024.05",
     categoryZh: "赛事",
     categoryEn: "Competition",
@@ -124,7 +138,6 @@ const socialCards = [
     slug: "douyin",
     platformZh: "抖音",
     platformEn: "Douyin",
-    handle: "@ethandue",
     summaryZh: "短视频与日常记录。",
     summaryEn: "Short-form video and everyday notes.",
     href: "https://www.douyin.com/search/ethandue?type=user",
@@ -134,7 +147,6 @@ const socialCards = [
     slug: "linkedin",
     platformZh: "领英",
     platformEn: "LinkedIn",
-    handle: "Yizhan Du",
     summaryZh: "职业经历与公开动态。",
     summaryEn: "Professional experience and public updates.",
     href: "https://www.linkedin.com/in/yizhan-du-148494306",
@@ -144,7 +156,6 @@ const socialCards = [
     slug: "xiaohongshu",
     platformZh: "小红书",
     platformEn: "Xiaohongshu",
-    handle: "DUYIZHAN",
     summaryZh: "生活方式、观察与图文记录。",
     summaryEn: "Lifestyle, observations, and visual notes.",
     href: "https://xhslink.com/m/90oLA9aKLTe",
@@ -154,7 +165,6 @@ const socialCards = [
     slug: "instagram",
     platformZh: "Instagram",
     platformEn: "Instagram",
-    handle: "@duyizhan0912",
     summaryZh: "照片、视觉记录与日常片段。",
     summaryEn: "Photography, visual notes, and daily moments.",
     href: "https://www.instagram.com/duyizhan0912",
@@ -180,8 +190,8 @@ const projectCards = [
     position: "center",
     titleZh: "焕新日记 洗护创业",
     titleEn: "Refresh Journal Laundry Venture",
-    bodyZh: "面向校园提供鞋履、衣物洗护服务，与多家本地门店建立合作，日访问量超过 2,000，客户满意度保持在 98% 以上。",
-    bodyEn: "A campus shoe and garment care service developed with multiple local retail partners, reaching 2,000+ daily views with 98%+ customer satisfaction.",
+    bodyZh: "面向高校社区提供鞋履、衣物洗护服务，与多家本地门店建立合作，日访问量超过 2,000，客户满意度保持在 98% 以上。",
+    bodyEn: "A shoe and garment care service for university communities, developed with multiple local retail partners and reaching 2,000+ daily views with 98%+ customer satisfaction.",
     href: "#小程序://杉苑/Wn50paCRYBgVh9f",
     linkType: "mini-program",
   },
@@ -478,7 +488,7 @@ export default function Home() {
           </div>
         </div>
         <p className="insight-intro" data-reveal>{activeTab === 0 ? t.socialIntro : t.insightIntro}</p>
-        <div className={`card-rail${activeTab === 0 ? " social-rail" : ""}`} id="insight-rail" data-reveal>
+        <div className={`card-rail insight-tab-rail${activeTab === 0 ? " social-rail" : ""}`} id="insight-rail" key={`insight-tab-${activeTab}`}>
           {activeTab === 0 ? (
             socialCards.map((card) => (
               <article className={`insight-card social-card social-${card.slug}`} key={card.slug}>
@@ -488,8 +498,8 @@ export default function Home() {
                     <i className="social-index">{card.number}</i>
                   </div>
                   <div className="social-copy">
-                    <p>{language === "zh" ? card.platformZh : card.platformEn}<span>·</span>{card.handle}</p>
-                    <h3>{card.handle}</h3>
+                    <p>{t.socialPlatform}</p>
+                    <h3>{language === "zh" ? card.platformZh : card.platformEn}</h3>
                     <span>{language === "zh" ? card.summaryZh : card.summaryEn}</span>
                     <em>{t.openSocial}</em>
                   </div>
