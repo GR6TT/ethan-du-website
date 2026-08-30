@@ -111,11 +111,11 @@ const mediaCards = [
     date: "2024.07",
     categoryZh: "科创峰会",
     categoryEn: "Technology Summit",
-    titleZh: "财联社&科创板日报：杜易展以 Eagle 创投执委身份支持科创板开市五周年峰会",
-    titleEn: "CLS & STAR Market Daily: Ethan Du Supports the STAR Market Fifth Anniversary Summit as an Eagle Ventures Executive Committee Member",
-    bodyZh: "峰会由上海市投资促进服务中心与《科创板日报》主办，吸引近 900 人报名，汇聚政府、学界、科创企业与投资机构代表，共议产业创新与资本协同。杜易展以 Eagle 创投执委身份参与支持活动举办。",
-    bodyEn: "Hosted by the Shanghai Investment Promotion Service Center and STAR Market Daily, the summit drew nearly 900 registrations and convened representatives from government, academia, technology companies, and investment institutions. Ethan Du supported the event as an Eagle Ventures Executive Committee member.",
-    image: "/star-market-fifth-anniversary.jpg",
+    titleZh: "财联社&科创板日报：杜易展所执委的 Eagle 创投支持科创板开市五周年峰会",
+    titleEn: "CLS & STAR Market Daily: Eagle Ventures, Where Ethan Du Serves on the Executive Committee, Supports the STAR Market Fifth Anniversary Summit",
+    bodyZh: "峰会由上海市投资促进服务中心与《科创板日报》主办，吸引近 900 人报名，汇聚政府、学界、科创企业与投资机构代表，共议产业创新与资本协同。杜易展所执委的 Eagle 创投参与支持活动举办。",
+    bodyEn: "Hosted by the Shanghai Investment Promotion Service Center and STAR Market Daily, the summit drew nearly 900 registrations and convened representatives from government, academia, technology companies, and investment institutions. Eagle Ventures, where Ethan Du serves on the executive committee, supported the event.",
+    image: "/star-market-fifth-anniversary-leveled.webp",
     brand: "STAR MARKET · 2024",
     href: "https://www.cls.cn/detail/1744399",
   },
@@ -567,3 +567,4 @@ export default function Home() {
     </main>
   );
 }
+
