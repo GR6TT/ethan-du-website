@@ -331,6 +331,8 @@ img { display: block; max-width: 100%; }
 .instagram-icon { background: radial-gradient(circle at 31% 107%, #ffd600 0 12%, #ff7a00 29%, #ff0169 53%, #d300c5 72%, #7638fa 100%); }
 .instagram-icon svg { fill: none; stroke: white; stroke-width: 7; }
 .instagram-icon circle:last-child { fill: white; stroke: none; }
+.github-icon { background: #181717; }
+.github-icon svg { width: 72px; height: 72px; fill: white; }
 .douyin-icon { background: #090909; }
 .douyin-icon svg { transform: scale(.76); }
 .douyin-cyan { fill: #25f4ee; transform: translate(-3px, 3px); }
@@ -489,3 +491,4 @@ footer { min-height: 390px; padding: 82px 72px 46px; color: white; background: l
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   [data-reveal] { opacity: 1; transform: none; }
 }
+

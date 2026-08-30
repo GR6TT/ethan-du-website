@@ -169,6 +169,15 @@ const socialCards = [
     summaryEn: "Photography, visual notes, and daily moments.",
     href: "https://www.instagram.com/duyizhan0912",
   },
+  {
+    number: "05",
+    slug: "github",
+    platformZh: "GitHub",
+    platformEn: "GitHub",
+    summaryZh: "代码、项目与开发记录。",
+    summaryEn: "Code, projects, and development notes.",
+    href: "https://github.com/GR6TT",
+  },
 ] as const;
 
 const insightCards = ["No. 01", "No. 02", "No. 03", "No. 04"];
@@ -221,6 +230,16 @@ function SocialLogo({ platform }: { platform: (typeof socialCards)[number]["slug
           <rect x="24" y="24" width="72" height="72" rx="23" />
           <circle cx="60" cy="60" r="18" />
           <circle cx="84" cy="36" r="5" />
+        </svg>
+      </span>
+    );
+  }
+
+  if (platform === "github") {
+    return (
+      <span className="social-app-icon github-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 .7a11.5 11.5 0 0 0-3.64 22.41c.58.11.79-.25.79-.56v-2.17c-3.22.7-3.9-1.36-3.9-1.36-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.57-.29-5.28-1.29-5.28-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.47.11-3.05 0 0 .97-.31 3.17 1.18A10.9 10.9 0 0 1 12 5.84c.98 0 1.96.13 2.88.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.24 2.76.12 3.05.74.81 1.19 1.83 1.19 3.09 0 4.4-2.71 5.38-5.29 5.67.42.36.78 1.08.78 2.18v3.24c0 .31.21.68.8.56A11.5 11.5 0 0 0 12 .7Z" />
         </svg>
       </span>
     );
