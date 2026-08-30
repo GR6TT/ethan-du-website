@@ -576,7 +576,16 @@ export default function Home() {
       {miniProgramCopied ? <div className="copy-toast" role="status">{language === "zh" ? "小程序口令已复制，请在微信中打开" : "Mini Program link copied — open it in WeChat"}</div> : null}
 
       <footer>
-        <img className="footer-signature" src="/ethan-signature.png" alt="Ethan Du" />
+        <div className="footer-top">
+          <img className="footer-signature" src="/ethan-signature.png" alt="Ethan Du" />
+          <nav className="footer-socials" aria-label={language === "zh" ? "杜易展的社交账号" : "Ethan Du on social media"}>
+            {socialCards.map((card) => (
+              <a href={card.href} target="_blank" rel="noreferrer" aria-label={language === "zh" ? card.platformZh : card.platformEn} key={card.slug}>
+                <SocialLogo platform={card.slug} />
+              </a>
+            ))}
+          </nav>
+        </div>
         <div className="footer-rule" />
         <div className="footer-meta">
           <p>© {year} {language === "zh" ? "杜易展" : "Ethan Du"}. All rights reserved.</p>
