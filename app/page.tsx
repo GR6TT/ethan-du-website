@@ -429,12 +429,13 @@ export default function Home() {
       <section className="identity-section section">
         <div className="identity-intro" data-reveal>
           <img src="/ethan-signature.png" alt="Ethan Du" />
-          <div>
+          <div className="identity-copy">
             <h2>{t.identityTitle}</h2>
             <p>{t.identityBody}</p>
           </div>
+          <RailControls railId="identity-rail" />
         </div>
-        <div className="identity-grid" data-reveal>
+        <div className="identity-grid" id="identity-rail" data-reveal>
           {["01", "02", "03", "04"].map((number) => (
             <article key={number}>
               <span>{number}</span>
@@ -547,8 +548,9 @@ export default function Home() {
             <h2>{t.projectsTitle}</h2>
             <p className="section-intro">{t.projectsBody}</p>
           </div>
+          <RailControls railId="project-rail" />
         </div>
-        <div className="project-grid" data-reveal>
+        <div className="project-grid" id="project-rail" data-reveal>
           {projectCards.map((card, index) => (
             <article key={card.number}>
               <div className={`project-visual project-${index + 1}`}>
