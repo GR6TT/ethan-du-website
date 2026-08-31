@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 72" role="img" aria-labelledby="title">
+  <title id="title">上海财经大学创业和投资校友会与 Eagle 创投俱乐部</title>
+  <circle cx="34" cy="36" r="27" fill="none" stroke="#59616c" stroke-width="3"/>
+  <path d="M19 38c10-16 20-16 31 0-10 12-21 12-31 0Zm7 0c6 6 11 6 17 0-6-7-11-7-17 0Z" fill="#59616c"/>
+  <text x="73" y="30" fill="#59616c" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="18" font-weight="800">上海财经大学创业和投资校友会</text>
+  <text x="74" y="51" fill="#59616c" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="600" letter-spacing="1.1">SUFE ENTREPRENEURSHIP &amp; INVESTMENT ALUMNI</text>
+  <line x1="360" y1="12" x2="360" y2="60" stroke="#9aa0aa" stroke-width="1.5"/>
+  <path d="M376 23h26l-8 7h-12v5h18l-8 7h-10v7h22l-9 7h-19z" fill="#59616c"/>
+  <text x="412" y="39" fill="#59616c" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="900" letter-spacing=".8">EAGLE</text>
+  <text x="412" y="53" fill="#59616c" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="9" font-weight="600">创投俱乐部</text>
+</svg>

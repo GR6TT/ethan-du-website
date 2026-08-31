@@ -84,22 +84,22 @@ const milestoneCards = [
   {
     index: "01",
     tone: "midnight",
+    titleZh: "BYU–Idaho",
+    titleEn: "BYU–Idaho",
+    bodyZh: "计算机科学 · 2028",
+    bodyEn: "Computer Science · 2028",
+    image: "/byui-campus.webp",
+    href: "#identity-rail",
+  },
+  {
+    index: "02",
+    tone: "midnight",
     titleZh: "全国冠军",
     titleEn: "National Champion",
     bodyZh: "首届淘宝大学生创新挑战赛 · 2024",
     bodyEn: "The first Taobao University Student Innovation Challenge · 2024",
     image: "/taobao-final-arrival.jpg",
     href: "#projects",
-  },
-  {
-    index: "02",
-    tone: "midnight",
-    titleZh: "BYU–Idaho",
-    titleEn: "BYU–Idaho",
-    bodyZh: "杜易展现就读于 BYU–Idaho，主修计算机科学。",
-    bodyEn: "Ethan Du currently studies Computer Science at BYU–Idaho.",
-    image: "/byui-milestone.webp",
-    href: "#identity-rail",
   },
   { index: "03", tone: "electric", titleZh: "经历", titleEn: "Experience" },
   { index: "04", tone: "paper", titleZh: "项目", titleEn: "Projects" },
@@ -109,25 +109,64 @@ const milestoneCards = [
 const identityCards = [
   {
     number: "01",
+    date: "2028",
+    dateTime: "2028",
     eyebrowZh: "教育 · BYU–IDAHO",
     eyebrowEn: "EDUCATION · BYU–IDAHO",
     titleZh: "杜易展现就读于 BYU–Idaho 计算机科学专业",
     titleEn: "Ethan Du currently studies Computer Science at BYU–Idaho",
-    image: "/byui-student-life.webp",
+    image: "/byui-campus.webp",
     imageClass: "byui",
     href: "https://www.byui.edu/",
   },
   {
     number: "02",
+    date: "2026",
+    dateTime: "2026",
     eyebrowZh: "项目 · GOLDMAN SACHS",
     eyebrowEn: "PROGRAM · GOLDMAN SACHS",
     titleZh: "杜易展进入 2026 Goldman Sachs Possibilities Series 项目",
     titleEn: "Ethan Du joins the 2026 Goldman Sachs Possibilities Series program",
-    image: "/goldman-possibilities.webp",
+    image: "/goldman-sachs-hq-wide.webp",
     imageClass: "goldman",
-    href: "https://www.goldmansachs.com/careers/students/programs-and-internships/americas/possibilities-series",
+    href: "https://www.goldmansachs.com/",
+  },
+  {
+    number: "03",
+    date: "2024.04 — 2024.07",
+    dateTime: "2024-04/2024-07",
+    eyebrowZh: "实习 · NEWEIC",
+    eyebrowEn: "INTERNSHIP · NEWEIC",
+    titleZh: "杜易展任 NEWEIC 量化私募基金市场实习生",
+    titleEn: "Ethan Du served as a Marketing Intern at NEWEIC, a quantitative investment firm",
+    image: "/neweic-quant.jpg",
+    imageClass: "neweic",
+    href: "https://www.neweicgroup.com/",
   },
 ] as const;
+
+type MarqueeLogo = {
+  src: string;
+  altZh: string;
+  altEn: string;
+  className?: string;
+};
+
+const marqueeLogos: readonly MarqueeLogo[] = [
+  { src: "/brand-logos/goldman-sachs.svg", altZh: "高盛", altEn: "Goldman Sachs" },
+  { src: "/brand-logos/byui.svg", altZh: "BYU–Idaho", altEn: "BYU–Idaho" },
+  {
+    src: "/brand-logos/sufe-eagle.svg",
+    altZh: "上海财经大学创业和投资校友会与 Eagle 创投俱乐部",
+    altEn: "SUFE Entrepreneurship and Investment Alumni Association with Eagle Venture Club",
+    className: "marquee-logo-wide",
+  },
+  { src: "/brand-logos/eagle.svg", altZh: "Eagle 创投俱乐部", altEn: "Eagle Venture Club" },
+  { src: "/brand-logos/sanda.svg", altZh: "上海杉达学院", altEn: "Sanda University" },
+  { src: "/logo-refresh-journal.png", altZh: "焕新日记", altEn: "Refresh Journal", className: "marquee-logo-refresh" },
+  { src: "/brand-logos/taobao.svg", altZh: "淘宝", altEn: "Taobao" },
+  { src: "/brand-logos/neweic.svg", altZh: "NEWEIC", altEn: "NEWEIC" },
+];
 
 const mediaCards = [
   {
@@ -508,14 +547,17 @@ export default function Home() {
                   <span>{card.number}</span>
                 </div>
                 <div className="identity-card-copy">
-                  <p>{language === "zh" ? card.eyebrowZh : card.eyebrowEn}</p>
+                  <div className="identity-card-meta">
+                    <p>{language === "zh" ? card.eyebrowZh : card.eyebrowEn}</p>
+                    <time dateTime={card.dateTime}>{card.date}</time>
+                  </div>
                   <h3>{language === "zh" ? card.titleZh : card.titleEn}</h3>
                   <em aria-hidden="true">↗</em>
                 </div>
               </a>
             </article>
           ))}
-          {["03", "04"].map((number) => (
+          {["04"].map((number) => (
             <article key={number}>
               <span>{number}</span>
               <div className="identity-mark" aria-hidden="true" />
@@ -554,13 +596,12 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="logo-marquee" aria-label="Future media archive">
-        <div>
-          {(language === "zh"
-            ? ["杜易展", "媒体", "观点", "项目作品", "洞察", "杜易展", "媒体", "项目作品"]
-            : ["ETHAN DU", "MEDIA", "IDEAS", "PROJECTS", "INSIGHTS", "ETHAN DU", "MEDIA", "PROJECTS"]
-          ).map((word, index) => (
-            <span key={`${word}-${index}`}>{word}</span>
+      <div className="logo-marquee" aria-label={language === "zh" ? "相关机构与品牌" : "Affiliated institutions and brands"}>
+        <div className="logo-marquee-track">
+          {[...marqueeLogos, ...marqueeLogos].map((logo, index) => (
+            <span className={`logo-marquee-item ${logo.className ?? ""}`} key={`${logo.src}-${index}`}>
+              <img src={logo.src} alt={language === "zh" ? logo.altZh : logo.altEn} />
+            </span>
           ))}
         </div>
       </div>

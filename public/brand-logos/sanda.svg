@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 72" role="img" aria-labelledby="title">
+  <title id="title">上海杉达学院</title>
+  <circle cx="35" cy="36" r="28" fill="none" stroke="#59616c" stroke-width="3"/>
+  <path d="M21 42c7-2 12-8 14-18 3 10 8 16 16 18-6 1-11 4-16 10-4-6-9-9-14-10Z" fill="#59616c"/>
+  <text x="77" y="34" fill="#59616c" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="22" font-weight="800" letter-spacing="1.2">上海杉达学院</text>
+  <text x="78" y="54" fill="#59616c" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" letter-spacing="2">SANDA UNIVERSITY</text>
+</svg>

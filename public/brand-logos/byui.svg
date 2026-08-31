@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 72" role="img" aria-labelledby="title">
+  <title id="title">Brigham Young University Idaho</title>
+  <path d="M9 18h48v9H36v34H25V27H9z" fill="#59616c"/>
+  <path d="M65 18h11l13 19 13-19h12L95 47v14H83V47z" fill="#59616c"/>
+  <text x="126" y="38" fill="#59616c" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="800" letter-spacing="1.2">BYU–IDAHO</text>
+  <text x="127" y="57" fill="#59616c" font-family="Arial, Helvetica, sans-serif" font-size="9.5" font-weight="600" letter-spacing="1.7">BRIGHAM YOUNG UNIVERSITY</text>
+</svg>
