@@ -34,6 +34,7 @@ const copy = {
     identityBody: "个人经历、关注领域与相关工作将在此持续更新。",
     media: "媒体报道",
     mediaIntro: "关于杜易展的媒体报道与公开记录。",
+    insightsTitle: "洞察",
     seeAll: "查看全部",
     tabs: ["社交账号", "观点", "视频集锦"],
     insightIntro: "收录对商业、内容与创新的观察。",
@@ -62,6 +63,7 @@ const copy = {
     identityBody: "Background, areas of interest, and related work will be updated here.",
     media: "Media Coverage",
     mediaIntro: "Media coverage and public records featuring Ethan Du.",
+    insightsTitle: "Insights",
     seeAll: "See All",
     tabs: ["Social Channels", "Perspectives", "Video Highlights"],
     insightIntro: "Perspectives on business, content, and innovation.",
@@ -259,7 +261,12 @@ function SocialLogo({ platform }: { platform: (typeof socialCards)[number]["slug
 function RailControls({ railId }: { railId: string }) {
   const move = (direction: number) => {
     const rail = document.getElementById(railId);
-    rail?.scrollBy({ left: direction * rail.clientWidth * 0.72, behavior: "smooth" });
+    const firstCard = rail?.firstElementChild as HTMLElement | null;
+    if (!rail || !firstCard) return;
+
+    const styles = window.getComputedStyle(rail);
+    const gap = Number.parseFloat(styles.columnGap || styles.gap) || 0;
+    rail.scrollBy({ left: direction * (firstCard.getBoundingClientRect().width + gap), behavior: "smooth" });
   };
 
   return (
@@ -309,6 +316,30 @@ export default function Home() {
     document.body.classList.toggle("menu-open", menuOpen);
     return () => document.body.classList.remove("menu-open");
   }, [menuOpen]);
+
+  useEffect(() => {
+    const rails = [...document.querySelectorAll<HTMLElement>(".wide-rail, .card-rail, .identity-grid, .project-grid")];
+    const cleanups = rails.map((rail) => {
+      const updateRailState = () => {
+        const hasOverflow = rail.scrollWidth > rail.clientWidth + 2;
+        rail.classList.toggle("has-overflow", hasOverflow);
+        rail.classList.toggle("at-start", rail.scrollLeft <= 2);
+        rail.classList.toggle("at-end", !hasOverflow || rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 2);
+      };
+
+      updateRailState();
+      rail.addEventListener("scroll", updateRailState, { passive: true });
+      const resizeObserver = new ResizeObserver(updateRailState);
+      resizeObserver.observe(rail);
+
+      return () => {
+        rail.removeEventListener("scroll", updateRailState);
+        resizeObserver.disconnect();
+      };
+    });
+
+    return () => cleanups.forEach((cleanup) => cleanup());
+  }, [activeTab]);
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -487,6 +518,16 @@ export default function Home() {
       </div>
 
       <section className="insights-section section" id="insights">
+        <div className="section-heading insight-section-heading" data-reveal>
+          <div>
+            <p className="blue-label">Insights</p>
+            <h2>{t.insightsTitle}</h2>
+          </div>
+          <div className="insight-actions">
+            <RailControls railId="insight-rail" />
+            <button className="pill-button blue compact" type="button">{t.seeAll}</button>
+          </div>
+        </div>
         <div className="insight-toolbar" data-reveal>
           <div className="tab-list" role="tablist" aria-label="Insight categories">
             {t.tabs.map((tab, index) => (
@@ -501,10 +542,6 @@ export default function Home() {
                 {tab}
               </button>
             ))}
-          </div>
-          <div className="insight-actions">
-            <RailControls railId="insight-rail" />
-            <button className="pill-button blue compact" type="button">{t.seeAll}</button>
           </div>
         </div>
         <p className="insight-intro" data-reveal>{activeTab === 0 ? t.socialIntro : t.insightIntro}</p>
