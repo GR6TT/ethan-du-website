@@ -355,12 +355,12 @@ img { display: block; max-width: 100%; }
 .feature-card-rail .editorial-copy h3 { min-height: 2.46em; margin-bottom: 10px; font-size: 22px; line-height: 1.23; }
 .feature-card-rail .editorial-copy > span { min-height: 2.9em; font-size: 14px; line-height: 1.45; -webkit-line-clamp: 2; }
 .feature-card-rail .editorial-copy em { margin-top: 10px; }
-.logo-marquee { min-height: 128px; display: flex; align-items: center; overflow: hidden; padding: 20px 0; background: white; }
-.logo-marquee-track { width: max-content; height: 88px; display: flex; align-items: center; gap: 54px; animation: marquee 34s linear infinite; }
+.logo-marquee { min-height: 110px; display: flex; align-items: center; overflow: hidden; padding: 18px 0; background: white; }
+.logo-marquee-track { width: max-content; height: 74px; display: flex; align-items: center; gap: 52px; padding-right: 52px; animation: marquee 34s linear infinite; }
 .logo-marquee-item,
 .logo-marquee-item.marquee-logo-wide,
-.logo-marquee-item.marquee-logo-refresh { flex: 0 0 260px; width: 260px; height: 78px; display: grid; place-items: center; overflow: visible; line-height: 0; opacity: 1; }
-.logo-marquee-item img { display: block; width: 100%; height: 100%; object-fit: contain; filter: none; }
+.logo-marquee-item.marquee-logo-refresh { flex: 0 0 auto; width: auto; height: 58px; display: block; overflow: visible; line-height: 0; opacity: 1; }
+.logo-marquee-item img { display: block; width: auto; height: 58px; max-width: none; object-fit: contain; filter: none; }
 .logo-marquee:hover .logo-marquee-track { animation-play-state: paused; }
 
 .insight-section-heading { margin-bottom: 16px; }
@@ -552,11 +552,12 @@ footer { min-height: 278px; padding: 52px var(--footer-inset) 34px; color: white
   .feature-card-rail .editorial-card { flex-basis: min(var(--medium-card-width), calc(100vw - 48px)); }
   .social-rail .social-card { flex-basis: min(var(--insight-card-width), calc(100vw - 48px)); }
   .social-visual { height: 168px; }
-  .logo-marquee { min-height: 108px; padding: 16px 0; }
-  .logo-marquee-track { height: 76px; gap: 34px; animation-duration: 30s; }
+  .logo-marquee { min-height: 92px; padding: 14px 0; }
+  .logo-marquee-track { height: 64px; gap: 36px; padding-right: 36px; animation-duration: 30s; }
   .logo-marquee-item,
   .logo-marquee-item.marquee-logo-wide,
-  .logo-marquee-item.marquee-logo-refresh { flex-basis: 220px; width: 220px; height: 66px; }
+  .logo-marquee-item.marquee-logo-refresh { flex-basis: auto; width: auto; height: 48px; }
+  .logo-marquee-item img { height: 48px; }
   .insight-section-heading { margin-bottom: 18px; }
   .insight-toolbar { align-items: flex-end; padding: 0; }
   .tab-list { max-width: 100%; gap: 15px; overflow-x: auto; scrollbar-width: none; }
