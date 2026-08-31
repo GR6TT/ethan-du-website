@@ -356,11 +356,17 @@ img { display: block; max-width: 100%; }
 .feature-card-rail .editorial-copy > span { min-height: 2.9em; font-size: 14px; line-height: 1.45; -webkit-line-clamp: 2; }
 .feature-card-rail .editorial-copy em { margin-top: 10px; }
 .logo-marquee { min-height: 110px; display: flex; align-items: center; overflow: hidden; padding: 18px 0; background: white; }
-.logo-marquee-track { width: max-content; height: 74px; display: flex; align-items: center; gap: 52px; padding-right: 52px; animation: marquee 34s linear infinite; }
-.logo-marquee-item,
-.logo-marquee-item.marquee-logo-wide,
-.logo-marquee-item.marquee-logo-refresh { flex: 0 0 auto; width: auto; height: 58px; display: block; overflow: visible; line-height: 0; opacity: 1; }
-.logo-marquee-item img { display: block; width: auto; height: 58px; max-width: none; object-fit: contain; filter: none; }
+.logo-marquee-track { width: max-content; height: 74px; display: flex; align-items: center; gap: 68px; padding-right: 68px; animation: marquee 34s linear infinite; }
+.logo-marquee-item { --logo-scale: 1; flex: 0 0 auto; width: auto; height: calc(58px * var(--logo-scale)); display: block; overflow: visible; line-height: 0; opacity: 1; }
+.logo-marquee-item img { display: block; width: auto; height: 100%; max-width: none; object-fit: contain; filter: none; }
+.marquee-logo-goldman { --logo-scale: .82; }
+.marquee-logo-byui { --logo-scale: 1; }
+.marquee-logo-wide { --logo-scale: .9; }
+.marquee-logo-eagle { --logo-scale: .82; }
+.marquee-logo-sanda { --logo-scale: .82; }
+.marquee-logo-refresh { --logo-scale: .94; }
+.marquee-logo-taobao { --logo-scale: .96; }
+.marquee-logo-neweic { --logo-scale: 1; }
 .logo-marquee:hover .logo-marquee-track { animation-play-state: paused; }
 
 .insight-section-heading { margin-bottom: 16px; }
@@ -553,11 +559,8 @@ footer { min-height: 278px; padding: 52px var(--footer-inset) 34px; color: white
   .social-rail .social-card { flex-basis: min(var(--insight-card-width), calc(100vw - 48px)); }
   .social-visual { height: 168px; }
   .logo-marquee { min-height: 92px; padding: 14px 0; }
-  .logo-marquee-track { height: 64px; gap: 36px; padding-right: 36px; animation-duration: 30s; }
-  .logo-marquee-item,
-  .logo-marquee-item.marquee-logo-wide,
-  .logo-marquee-item.marquee-logo-refresh { flex-basis: auto; width: auto; height: 48px; }
-  .logo-marquee-item img { height: 48px; }
+  .logo-marquee-track { height: 64px; gap: 44px; padding-right: 44px; animation-duration: 30s; }
+  .logo-marquee-item { height: calc(48px * var(--logo-scale)); }
   .insight-section-heading { margin-bottom: 18px; }
   .insight-toolbar { align-items: flex-end; padding: 0; }
   .tab-list { max-width: 100%; gap: 15px; overflow-x: auto; scrollbar-width: none; }

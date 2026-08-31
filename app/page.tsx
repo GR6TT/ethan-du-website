@@ -153,19 +153,19 @@ type MarqueeLogo = {
 };
 
 const marqueeLogos: readonly MarqueeLogo[] = [
-  { src: "/brand-logos/goldman-sachs.webp", altZh: "高盛", altEn: "Goldman Sachs" },
-  { src: "/brand-logos/byui.webp", altZh: "BYU–Idaho", altEn: "BYU–Idaho" },
+  { src: "/brand-logos/goldman-sachs.webp", altZh: "高盛", altEn: "Goldman Sachs", className: "marquee-logo-goldman" },
+  { src: "/brand-logos/byui.webp", altZh: "BYU–Idaho", altEn: "BYU–Idaho", className: "marquee-logo-byui" },
   {
     src: "/brand-logos/sufe-venture-alumni.webp",
     altZh: "上海财经大学创业和投资校友会",
     altEn: "SUFE Entrepreneurship and Investment Alumni Association",
     className: "marquee-logo-wide",
   },
-  { src: "/brand-logos/eagle.webp", altZh: "Eagle 创投俱乐部", altEn: "Eagle Venture Club" },
-  { src: "/brand-logos/sanda.webp", altZh: "上海杉达学院", altEn: "Sanda University" },
+  { src: "/brand-logos/eagle.webp", altZh: "Eagle 创投俱乐部", altEn: "Eagle Venture Club", className: "marquee-logo-eagle" },
+  { src: "/brand-logos/sanda.webp", altZh: "上海杉达学院", altEn: "Sanda University", className: "marquee-logo-sanda" },
   { src: "/brand-logos/refresh-journal.webp", altZh: "焕新日记", altEn: "Refresh Journal", className: "marquee-logo-refresh" },
-  { src: "/brand-logos/taobao.webp", altZh: "淘宝", altEn: "Taobao" },
-  { src: "/brand-logos/neweic.webp", altZh: "NEWEIC", altEn: "NEWEIC" },
+  { src: "/brand-logos/taobao.webp", altZh: "淘宝", altEn: "Taobao", className: "marquee-logo-taobao" },
+  { src: "/brand-logos/neweic.webp", altZh: "NEWEIC", altEn: "NEWEIC", className: "marquee-logo-neweic" },
 ];
 
 const mediaCards = [
