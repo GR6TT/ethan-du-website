@@ -91,9 +91,42 @@ const milestoneCards = [
     image: "/taobao-final-arrival.jpg",
     href: "#projects",
   },
-  { index: "02", tone: "electric", titleZh: "经历", titleEn: "Experience" },
-  { index: "03", tone: "paper", titleZh: "项目", titleEn: "Projects" },
-  { index: "04", tone: "violet", titleZh: "观点", titleEn: "Perspectives" },
+  {
+    index: "02",
+    tone: "midnight",
+    titleZh: "BYU–Idaho",
+    titleEn: "BYU–Idaho",
+    bodyZh: "杜易展现就读于 BYU–Idaho，主修计算机科学。",
+    bodyEn: "Ethan Du currently studies Computer Science at BYU–Idaho.",
+    image: "/byui-milestone.webp",
+    href: "#identity-rail",
+  },
+  { index: "03", tone: "electric", titleZh: "经历", titleEn: "Experience" },
+  { index: "04", tone: "paper", titleZh: "项目", titleEn: "Projects" },
+  { index: "05", tone: "violet", titleZh: "观点", titleEn: "Perspectives" },
+] as const;
+
+const identityCards = [
+  {
+    number: "01",
+    eyebrowZh: "教育 · BYU–IDAHO",
+    eyebrowEn: "EDUCATION · BYU–IDAHO",
+    titleZh: "杜易展现就读于 BYU–Idaho 计算机科学专业",
+    titleEn: "Ethan Du currently studies Computer Science at BYU–Idaho",
+    image: "/byui-student-life.webp",
+    imageClass: "byui",
+    href: "https://www.byui.edu/",
+  },
+  {
+    number: "02",
+    eyebrowZh: "项目 · GOLDMAN SACHS",
+    eyebrowEn: "PROGRAM · GOLDMAN SACHS",
+    titleZh: "杜易展进入 2026 Goldman Sachs Possibilities Series 项目",
+    titleEn: "Ethan Du joins the 2026 Goldman Sachs Possibilities Series program",
+    image: "/goldman-possibilities.webp",
+    imageClass: "goldman",
+    href: "https://www.goldmansachs.com/careers/students/programs-and-internships/americas/possibilities-series",
+  },
 ] as const;
 
 const mediaCards = [
@@ -113,10 +146,10 @@ const mediaCards = [
     date: "2024.07",
     categoryZh: "科创峰会",
     categoryEn: "Technology Summit",
-    titleZh: "财联社&科创板日报：杜易展所执委的 Eagle 创投支持科创板开市五周年峰会",
-    titleEn: "CLS & STAR Market Daily: Eagle Ventures, Where Ethan Du Serves on the Executive Committee, Supports the STAR Market Fifth Anniversary Summit",
-    bodyZh: "峰会由上海市投资促进服务中心与《科创板日报》主办，吸引近 900 人报名，汇聚政府、学界、科创企业与投资机构代表，共议产业创新与资本协同。杜易展所执委的 Eagle 创投参与支持活动举办。",
-    bodyEn: "Hosted by the Shanghai Investment Promotion Service Center and STAR Market Daily, the summit drew nearly 900 registrations and convened representatives from government, academia, technology companies, and investment institutions. Eagle Ventures, where Ethan Du serves on the executive committee, supported the event.",
+    titleZh: "财联社&科创板日报：杜易展所执委Eagle创投俱乐部支持科创板开市五周年峰会举办",
+    titleEn: "CLS & STAR Market Daily: Eagle Venture Club, Where Ethan Du Serves on the Executive Committee, Supports the STAR Market Fifth Anniversary Summit",
+    bodyZh: "杜易展所任执委的Eagle创投俱乐部为支持单位，杜易展代表并参与支持活动举办。",
+    bodyEn: "Eagle Venture Club, where Ethan Du serves as an executive committee member, was a supporting organization; Ethan Du represented the club and participated in supporting the event.",
     image: "/star-market-fifth-anniversary-leveled.webp",
     brand: "STAR MARKET · 2024",
     href: "https://www.cls.cn/detail/1744399",
@@ -467,7 +500,22 @@ export default function Home() {
           <RailControls railId="identity-rail" />
         </div>
         <div className="identity-grid" id="identity-rail" data-reveal>
-          {["01", "02", "03", "04"].map((number) => (
+          {identityCards.map((card) => (
+            <article className="identity-photo-card" key={card.number}>
+              <a className="identity-card-link" href={card.href} target="_blank" rel="noreferrer">
+                <div className={`identity-card-image ${card.imageClass}`}>
+                  <img src={card.image} alt={language === "zh" ? card.titleZh : card.titleEn} />
+                  <span>{card.number}</span>
+                </div>
+                <div className="identity-card-copy">
+                  <p>{language === "zh" ? card.eyebrowZh : card.eyebrowEn}</p>
+                  <h3>{language === "zh" ? card.titleZh : card.titleEn}</h3>
+                  <em aria-hidden="true">↗</em>
+                </div>
+              </a>
+            </article>
+          ))}
+          {["03", "04"].map((number) => (
             <article key={number}>
               <span>{number}</span>
               <div className="identity-mark" aria-hidden="true" />
@@ -634,4 +682,3 @@ export default function Home() {
     </main>
   );
 }
-

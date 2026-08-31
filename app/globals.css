@@ -300,6 +300,19 @@ img { display: block; max-width: 100%; }
 .identity-grid h3 { position: absolute; left: 20px; right: 20px; bottom: 20px; margin: 0; font-size: 19px; }
 .identity-mark { position: absolute; left: 50%; top: 42%; width: 84px; height: 84px; border: 1px solid #b8c1d7; border-radius: 28% 72% 54% 46% / 48% 38% 62% 52%; transform: translate(-50%,-50%) rotate(30deg); }
 .identity-mark::after { content: ""; position: absolute; inset: 17px; border: 1px solid #8ca1d1; border-radius: 50%; }
+.identity-grid article.identity-photo-card { padding: 0; background: #fff; border: 1px solid var(--line); }
+.identity-card-link { height: 100%; display: flex; flex-direction: column; }
+.identity-card-image { position: relative; flex: 0 0 235px; height: 235px; overflow: hidden; background: #d9e2ef; }
+.identity-card-image::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(4,10,24,.06), rgba(4,10,24,.02) 58%, rgba(4,10,24,.34)); pointer-events: none; }
+.identity-card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 600ms cubic-bezier(.2,.75,.25,1); }
+.identity-photo-card:hover .identity-card-image img { transform: scale(1.035); }
+.identity-card-image.goldman { background: #e8ecf2; }
+.identity-card-image.goldman img { object-position: center; }
+.identity-card-image > span { position: absolute; z-index: 1; top: 17px; right: 18px; color: rgba(255,255,255,.86); font-size: 12px; letter-spacing: .14em; }
+.identity-card-copy { position: relative; flex: 1; display: flex; flex-direction: column; padding: 17px 48px 19px 20px; }
+.identity-card-copy p { margin: 0; color: var(--blue); font-size: 11px; line-height: 1.35; letter-spacing: .08em; }
+.identity-grid .identity-card-copy h3 { position: static; margin: auto 0 0; font-size: 19px; line-height: 1.35; }
+.identity-card-copy em { position: absolute; right: 20px; bottom: 20px; color: var(--blue); font-size: 17px; line-height: 1; font-style: normal; }
 
 .media-section, .insights-section { background: linear-gradient(180deg, #f8faff, #fff); }
 .editorial-card, .insight-card { overflow: hidden; border-radius: 20px; background: #f1f4fc; scroll-snap-align: start; }
@@ -558,4 +571,3 @@ footer { min-height: 278px; padding: 52px var(--footer-inset) 34px; color: white
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   [data-reveal] { opacity: 1; transform: none; }
 }
-
