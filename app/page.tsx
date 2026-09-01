@@ -133,6 +133,18 @@ const identityCards = [
   },
   {
     number: "03",
+    date: "2026",
+    dateTime: "2026",
+    eyebrowZh: "项目 · 上海AI实验室",
+    eyebrowEn: "PROGRAM · SHANGHAI AI LABORATORY",
+    titleZh: "杜易展进入上海AI实验室科研加速营项目",
+    titleEn: "Ethan Du joins the Shanghai AI Laboratory Research Accelerator program",
+    image: "/shanghai-ai-lab-research-accelerator.webp",
+    imageClass: "shanghai-ai-lab",
+    href: "https://www.shlab.org.cn/",
+  },
+  {
+    number: "04",
     date: "2024",
     dateTime: "2024",
     eyebrowZh: "实习 · NEWEIC",
